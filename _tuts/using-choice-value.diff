@@ -1,14 +1,124 @@
+diff --git a/src/AppBundle/Controller/DefaultController.php b/src/AppBundle/Controller/DefaultController.php
+index 5962399..2543fb6 100644
+--- a/src/AppBundle/Controller/DefaultController.php
++++ b/src/AppBundle/Controller/DefaultController.php
+@@ -2,6 +2,8 @@
+ 
+ namespace AppBundle\Controller;
+ 
++use AppBundle\Entity\Category;
++use AppBundle\Entity\Product;
+ use AppBundle\Form\ProductType;
+ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+@@ -14,7 +16,11 @@ class DefaultController extends Controller
+      */
+     public function indexAction(Request $request)
+     {
+-        $form = $this->createForm(new ProductType());
++        $cat2 = new Category('Cat2');
++
++        $product = new Product(null, $cat2);
++
++        $form = $this->createForm(new ProductType(), $product);
+ 
+         $form->handleRequest($request);
+ 
+diff --git a/src/AppBundle/Entity/Category.php b/src/AppBundle/Entity/Category.php
+new file mode 100644
+index 0000000..a8e0f1b
+--- /dev/null
++++ b/src/AppBundle/Entity/Category.php
+@@ -0,0 +1,23 @@
++<?php
++
++namespace AppBundle\Entity;
++
++class Category
++{
++    private $name;
++
++    public function __construct($name)
++    {
++        $this->name = $name;
++    }
++
++    public function getName()
++    {
++        return $this->name;
++    }
++
++    public function setName($name)
++    {
++        $this->name = $name;
++    }
++}
+diff --git a/src/AppBundle/Entity/Product.php b/src/AppBundle/Entity/Product.php
+new file mode 100644
+index 0000000..4a09ac4
+--- /dev/null
++++ b/src/AppBundle/Entity/Product.php
+@@ -0,0 +1,48 @@
++<?php
++
++namespace AppBundle\Entity;
++
++class Product
++{
++    private $name;
++
++    private $category;
++
++    private $stockStatus;
++
++    public function __construct($name = null, Category $category = null)
++    {
++        $this->name = $name;
++        $this->category = $category;
++    }
++
++    public function getName()
++    {
++        return $this->name;
++    }
++
++    public function setName($name)
++    {
++        $this->name = $name;
++    }
++
++    public function getCategory()
++    {
++        return $this->category;
++    }
++
++    public function setCategory($category)
++    {
++        $this->category = $category;
++    }
++
++    public function getStockStatus()
++    {
++        return $this->stockStatus;
++    }
++
++    public function setStockStatus($stockStatus)
++    {
++        $this->stockStatus = $stockStatus;
++    }
++}
 diff --git a/src/AppBundle/Form/ProductType.php b/src/AppBundle/Form/ProductType.php
-index 33f169f..7eeb47b 100644
+index 33f169f..30b6345 100644
 --- a/src/AppBundle/Form/ProductType.php
 +++ b/src/AppBundle/Form/ProductType.php
-@@ -34,6 +34,10 @@ class ProductType extends AbstractType
+@@ -34,6 +34,11 @@ class ProductType extends AbstractType
                  // not any name attributes as far as I can see
                  'choice_name' => function($choiceVal, $choiceKey, $choiceIndex) {
                      return $choiceVal;
 +                },
 +                'choice_value' => function($choiceVal) {
 +                    // this changes things like stock_yes_second to STOCK_YES_SECOND
++                    // *in the HTML* - the underlying data is *still* stock_yes_second
 +                    return strtoupper($choiceVal);
                  }
              ]);

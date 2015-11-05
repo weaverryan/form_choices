@@ -1,0 +1,29 @@
+diff --git a/src/AppBundle/Form/ProductType.php b/src/AppBundle/Form/ProductType.php
+index 30b6345..59f0805 100644
+--- a/src/AppBundle/Form/ProductType.php
++++ b/src/AppBundle/Form/ProductType.php
+@@ -2,6 +2,7 @@
+ 
+ namespace AppBundle\Form;
+ 
++use AppBundle\Entity\Category;
+ use Symfony\Component\Form\AbstractType;
+ use Symfony\Component\Form\FormBuilderInterface;
+ 
+@@ -40,6 +41,15 @@ class ProductType extends AbstractType
+                     // *in the HTML* - the underlying data is *still* stock_yes_second
+                     return strtoupper($choiceVal);
+                 }
+-            ]);
++            ])
++            ->add('category', 'choice', [
++                'choices' => [
++                    new Category('Cat1'),
++                    new Category('Cat2'),
++                    new Category('Cat3')
++                ],
++                'choices_as_values' => true,
++            ])
++            ;
+     }
+ }

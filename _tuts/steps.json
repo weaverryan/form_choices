@@ -24,7 +24,32 @@
             "id": "using-choice-value",
             "name": "Using choice_value",
             "description": null
+        },
+        {
+            "id": "adding-category-choice-field",
+            "name": "Adding Category choice field",
+            "description": null
+        },
+        {
+            "id": "category-choice-property-path-choice-label",
+            "name": "Category choice property path choice_label",
+            "description": null
+        },
+        {
+            "id": "category-choice-label-as-callback",
+            "name": "Category choice_label as callback",
+            "description": null
+        },
+        {
+            "id": "category-choice-value",
+            "name": "Category choice_value",
+            "description": null
+        },
+        {
+            "id": "using-choice-attr",
+            "name": "Using choice_attr",
+            "description": null
         }
     ],
-    "sha": "ab2228bc2d291c00218de62978367e5173a2f0d3"
+    "sha": "72fbeac93f4d60790961a3caf11d4ee3019056bd"
 }

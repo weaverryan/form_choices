@@ -1,0 +1,12 @@
+diff --git a/src/AppBundle/Form/ProductType.php b/src/AppBundle/Form/ProductType.php
+index 59f0805..ed74766 100644
+--- a/src/AppBundle/Form/ProductType.php
++++ b/src/AppBundle/Form/ProductType.php
+@@ -49,6 +49,7 @@ class ProductType extends AbstractType
+                     new Category('Cat3')
+                 ],
+                 'choices_as_values' => true,
++                'choice_label' => 'name',
+             ])
+             ;
+     }

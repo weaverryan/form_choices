@@ -1,0 +1,16 @@
+diff --git a/src/AppBundle/Form/ProductType.php b/src/AppBundle/Form/ProductType.php
+index fb53835..0513d87 100644
+--- a/src/AppBundle/Form/ProductType.php
++++ b/src/AppBundle/Form/ProductType.php
+@@ -53,6 +53,11 @@ class ProductType extends AbstractType
+                     /** @var Category $choiceVal */
+ 
+                     return strtoupper($choiceVal->getName());
++                },
++                'choice_value' => function ($choiceVal) {
++                    /** @var Category $choiceVal */
++
++                    return strtolower($choiceVal->getName());
+                 }
+             ])
+             ;
