@@ -1,0 +1,15 @@
+diff --git a/src/AppBundle/Form/ProductType.php b/src/AppBundle/Form/ProductType.php
+index 33f169f..7eeb47b 100644
+--- a/src/AppBundle/Form/ProductType.php
++++ b/src/AppBundle/Form/ProductType.php
+@@ -34,6 +34,10 @@ class ProductType extends AbstractType
+                 // not any name attributes as far as I can see
+                 'choice_name' => function($choiceVal, $choiceKey, $choiceIndex) {
+                     return $choiceVal;
++                },
++                'choice_value' => function($choiceVal) {
++                    // this changes things like stock_yes_second to STOCK_YES_SECOND
++                    return strtoupper($choiceVal);
+                 }
+             ]);
+     }

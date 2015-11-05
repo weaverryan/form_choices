@@ -1,0 +1,20 @@
+diff --git a/src/AppBundle/Form/ProductType.php b/src/AppBundle/Form/ProductType.php
+index 56be787..ab42d53 100644
+--- a/src/AppBundle/Form/ProductType.php
++++ b/src/AppBundle/Form/ProductType.php
+@@ -13,10 +13,11 @@ class ProductType extends AbstractType
+             ->add('stockStatus', 'choice', [
+                 'label' => 'Stock Status',
+                 'choices' => [
+-                    'stock_yes' => 'Yes',
+-                    'stock_no' => 'No',
+-                    'stock_backordered' => 'Backordered'
+-                ]
++                    'Yes' => 'stock_yes',
++                    'No' => 'stock_no',
++                    'Backordered' => 'stock_backordered',
++                ],
++                'choices_as_values' => true,
+             ]);
+     }
+ }

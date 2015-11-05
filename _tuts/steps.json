@@ -1,0 +1,30 @@
+{
+    "steps": [
+        {
+            "id": "start",
+            "name": "start",
+            "description": null
+        },
+        {
+            "id": "basic-choices-as-values",
+            "name": "Basic choices_as_values",
+            "description": null
+        },
+        {
+            "id": "choice-label-option-two-yes-choices",
+            "name": "choice_label option: Two yes choices",
+            "description": null
+        },
+        {
+            "id": "using-choice-name",
+            "name": "Using choice_name",
+            "description": null
+        },
+        {
+            "id": "using-choice-value",
+            "name": "Using choice_value",
+            "description": null
+        }
+    ],
+    "sha": "ab2228bc2d291c00218de62978367e5173a2f0d3"
+}
