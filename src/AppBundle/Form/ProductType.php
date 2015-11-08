@@ -53,6 +53,11 @@ class ProductType extends AbstractType
                     /** @var Category $choiceVal */
 
                     return strtoupper($choiceVal->getName());
+                },
+                'choice_value' => function ($choiceVal) {
+                    /** @var Category $choiceVal */
+
+                    return strtolower($choiceVal->getName());
                 }
             ])
             ;
