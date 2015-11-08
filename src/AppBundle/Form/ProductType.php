@@ -49,6 +49,7 @@ class ProductType extends AbstractType
                     new Category('Cat3')
                 ],
                 'choices_as_values' => true,
+                'choice_label' => 'name',
             ])
             ;
     }
