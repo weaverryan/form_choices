@@ -49,7 +49,11 @@ class ProductType extends AbstractType
                     new Category('Cat3')
                 ],
                 'choices_as_values' => true,
-                'choice_label' => 'name',
+                'choice_label' => function($choiceVal, $choiceKey, $choiceIndex) {
+                    /** @var Category $choiceVal */
+
+                    return strtoupper($choiceVal->getName());
+                }
             ])
             ;
     }
