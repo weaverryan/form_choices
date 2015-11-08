@@ -65,6 +65,13 @@ class ProductType extends AbstractType
                 },
                 'choice_attr' => function($choiceVal, $choiceKey, $choiceIndex) {
                     return ['class' => 'category_'.strtolower($choiceVal->getName())];
+                },
+                'group_by' => function($choiceVal, $choiceKey, $choiceIndex) {
+                    if (rand(0, 1) == 1) {
+                        return 'Group A';
+                    }
+
+                    return 'Group B';
                 }
             ])
             ;
