@@ -34,6 +34,11 @@ class ProductType extends AbstractType
                 // not any name attributes as far as I can see
                 'choice_name' => function($choiceVal, $choiceKey, $choiceIndex) {
                     return $choiceVal;
+                },
+                'choice_value' => function($choiceVal) {
+                    // this changes things like stock_yes_second to STOCK_YES_SECOND
+                    // *in the HTML* - the underlying data is *still* stock_yes_second
+                    return strtoupper($choiceVal);
                 }
             ]);
     }

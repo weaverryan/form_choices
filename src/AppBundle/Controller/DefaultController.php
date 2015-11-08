@@ -2,6 +2,8 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Category;
+use AppBundle\Entity\Product;
 use AppBundle\Form\ProductType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -14,7 +16,11 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        $form = $this->createForm(new ProductType());
+        $cat2 = new Category('Cat2');
+
+        $product = new Product(null, $cat2);
+
+        $form = $this->createForm(new ProductType(), $product);
 
         $form->handleRequest($request);
 
