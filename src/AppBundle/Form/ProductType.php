@@ -18,6 +18,8 @@ class ProductType extends AbstractType
                     'Backordered' => 'stock_backordered',
                     'yes_later' => 'stock_yes_second',
                 ],
+                'expanded' => true,
+                'multiple' => false,
                 'choices_as_values' => true,
                 'choice_label' => function($choiceVal, $choiceKey, $choiceIndex) {
                     if ($choiceKey == 'yes_later') {
@@ -27,6 +29,12 @@ class ProductType extends AbstractType
 
                     return $choiceKey;
                 },
+                // this only seems to affect checkboxes and radio buttons
+                // it also only seems to be used in the generation of the *id*,
+                // not any name attributes as far as I can see
+                'choice_name' => function($choiceVal, $choiceKey, $choiceIndex) {
+                    return $choiceVal;
+                }
             ]);
     }
 }
