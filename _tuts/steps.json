@@ -49,7 +49,22 @@
             "id": "using-choice-attr",
             "name": "Using choice_attr",
             "description": null
+        },
+        {
+            "id": "using-grouping",
+            "name": "Using grouping!",
+            "description": null
+        },
+        {
+            "id": "grouping-with-group-by",
+            "name": "Grouping with group_by",
+            "description": null
+        },
+        {
+            "id": "preferred-choices",
+            "name": "preferred_choices",
+            "description": null
         }
     ],
-    "sha": "72fbeac93f4d60790961a3caf11d4ee3019056bd"
+    "sha": "14daa7296b71cc071fc2733a96077ff37670b944"
 }

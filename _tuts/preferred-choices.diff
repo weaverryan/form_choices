@@ -1,0 +1,19 @@
+diff --git a/src/AppBundle/Form/ProductType.php b/src/AppBundle/Form/ProductType.php
+index 2d53ff9..3ec06e0 100644
+--- a/src/AppBundle/Form/ProductType.php
++++ b/src/AppBundle/Form/ProductType.php
+@@ -44,7 +44,13 @@ class ProductType extends AbstractType
+                     // this changes things like stock_yes_second to STOCK_YES_SECOND
+                     // *in the HTML* - the underlying data is *still* stock_yes_second
+                     return strtoupper($choiceVal);
+-                }
++                },
++                'preferred_choices' => function($choiceVal, $choiceKey, $choiceIndex) {
++                    // return true or false for each
++                    return rand(0, 1) == 1;
++                },
++                // can also be an array of their values
++                //'preferred_choices' => array('stock_no')
+             ])
+             ->add('category', 'choice', [
+                 'choices' => [
