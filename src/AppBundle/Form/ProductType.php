@@ -14,12 +14,16 @@ class ProductType extends AbstractType
             ->add('stockStatus', 'choice', [
                 'label' => 'Stock Status',
                 'choices' => [
-                    'Yes' => 'stock_yes',
-                    'No' => 'stock_no',
-                    'Backordered' => 'stock_backordered',
-                    'yes_later' => 'stock_yes_second',
+                    'Main Statuses' => [
+                        'Yes' => 'stock_yes',
+                        'No' => 'stock_no',
+                    ],
+                    'Other Statuses' => [
+                        'Backordered' => 'stock_backordered',
+                        'yes_later' => 'stock_yes_second',
+                    ]
                 ],
-                'expanded' => true,
+                'expanded' => false,
                 'multiple' => false,
                 'choices_as_values' => true,
                 'choice_label' => function($choiceVal, $choiceKey, $choiceIndex) {
